@@ -21,8 +21,8 @@ import {
 } from '@loopback/rest';
 import {Credenciales, Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
-import {AutenticacionService} from '../services';
-const sgMail = require('@sendgrid/mail');
+import {AutenticacionService, NotificacionService} from '../services';
+
 require('dotenv').config();
 
 export class UsuarioController {
@@ -31,6 +31,8 @@ export class UsuarioController {
     public usuarioRepository: UsuarioRepository,
     @service(AutenticacionService)
     public servicioAutenticacion: AutenticacionService,
+    @service(NotificacionService)
+    public servicioNotificacion: NotificacionService,
   ) {}
 
   @post('/login', {
@@ -87,23 +89,13 @@ export class UsuarioController {
 
     // TODO: Enviar correo electrónico con la clave
     const destino = usuario.correo;
-    const asunto = '¡Bienvenido a MascotaFeliz!';
-    const cuerpo = `¡Hola <strong>${usuario.nombres}</strong>! </br>Bienvenido a MascotaFeliz. </br>Tu clave de acceso al portal es: <strong>${clave}</strong> </br> Por favor no compartas tu clave con nadie.`;
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    const msg = {
-      to: destino,
-      from: 'arlem@misena.edu.co',
-      subject: asunto,
-      html: cuerpo,
-    };
-    sgMail
-      .send(msg)
-      .then(() => {
-        console.log('Correo elecotrónico enviado');
-      })
-      .catch((error: any) => {
-        console.error(error);
-      });
+    const asunto = '¡Bienvenid@ a MascotaFeliz!';
+    const cuerpo = `¡Hola <strong>${usuario.nombres}</strong>! </br>Bienvenid@ a MascotaFeliz. </br>Tu clave de acceso al portal es: <strong>${clave}</strong> </br> Por favor no compartas tu clave con nadie.`;
+    this.servicioNotificacion.enviarCorreo(destino, asunto, cuerpo);
+
+    // TODO: Enviar SMS con la clave
+    const mensaje = `¡Hola ${usuario.nombres}! Bienvenid@ a MascotaFeliz. Tu clave de acceso al portal es: ${clave}`;
+    this.servicioNotificacion.enviarSMSTwilio(usuario.telefono, mensaje);
 
     return p;
   }
