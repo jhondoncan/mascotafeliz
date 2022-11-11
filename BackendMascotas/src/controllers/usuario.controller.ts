@@ -11,6 +11,7 @@ import {
   del,
   get,
   getModelSchemaRef,
+  HttpErrors,
   param,
   patch,
   post,
@@ -18,12 +19,11 @@ import {
   requestBody,
   response,
 } from '@loopback/rest';
-import {Usuario} from '../models';
+import {Credenciales, Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
 import {AutenticacionService} from '../services';
 const sgMail = require('@sendgrid/mail');
 require('dotenv').config();
-console.log(process.env);
 
 export class UsuarioController {
   constructor(
@@ -32,6 +32,35 @@ export class UsuarioController {
     @service(AutenticacionService)
     public servicioAutenticacion: AutenticacionService,
   ) {}
+
+  @post('/login', {
+    responses: {
+      '200': {
+        description: 'Login de usuario',
+      },
+    },
+  })
+  async login(@requestBody() credenciales: Credenciales) {
+    let p = await this.servicioAutenticacion.identificarUsuario(
+      credenciales.correo,
+      credenciales.password,
+    );
+    if (p) {
+      let token = this.servicioAutenticacion.generarTokenJWT(p);
+      return {
+        datos: {
+          id: p.id,
+          nombres: p.nombres,
+          apellidos: p.apellidos,
+          correo: p.correo,
+          rol: p.rol,
+        },
+        token: token,
+      };
+    } else {
+      throw new HttpErrors[401]('Usuario o contraseña incorrectos');
+    }
+  }
 
   @post('/usuarios')
   @response(200, {
