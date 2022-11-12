@@ -1,29 +1,39 @@
+import {authenticate} from '@loopback/authentication';
 import {
-    Count,
-    CountSchema,
-    Filter,
-    FilterExcludingWhere,
-    repository,
-    Where
+  Count,
+  CountSchema,
+  Filter,
+  FilterExcludingWhere,
+  repository,
+  Where,
 } from '@loopback/repository';
 import {
-    del, get,
-    getModelSchemaRef, param, patch, post, put, requestBody,
-    response
+  del,
+  get,
+  getModelSchemaRef,
+  param,
+  patch,
+  post,
+  put,
+  requestBody,
+  response,
 } from '@loopback/rest';
-import { ProductoServicio } from '../models';
-import { ProductoServicioRepository } from '../repositories';
+import {ProductoServicio} from '../models';
+import {ProductoServicioRepository} from '../repositories';
 
+@authenticate('administrador', 'asesor') // ?: Autorizar adminstrador , asesor
 export class ProductoServicioController {
   constructor(
     @repository(ProductoServicioRepository)
-    public productoServicioRepository : ProductoServicioRepository,
+    public productoServicioRepository: ProductoServicioRepository,
   ) {}
 
   @post('/productos-servicios')
   @response(200, {
     description: 'ProductoServicio model instance',
-    content: {'application/json': {schema: getModelSchemaRef(ProductoServicio)}},
+    content: {
+      'application/json': {schema: getModelSchemaRef(ProductoServicio)},
+    },
   })
   async create(
     @requestBody({
@@ -100,7 +110,8 @@ export class ProductoServicioController {
   })
   async findById(
     @param.path.string('id') id: string,
-    @param.filter(ProductoServicio, {exclude: 'where'}) filter?: FilterExcludingWhere<ProductoServicio>
+    @param.filter(ProductoServicio, {exclude: 'where'})
+    filter?: FilterExcludingWhere<ProductoServicio>,
   ): Promise<ProductoServicio> {
     return this.productoServicioRepository.findById(id, filter);
   }
@@ -134,6 +145,7 @@ export class ProductoServicioController {
     await this.productoServicioRepository.replaceById(id, productoServicio);
   }
 
+  @authenticate('administrador') // ?: Autorizar adminstrador
   @del('/productos-servicios/{id}')
   @response(204, {
     description: 'ProductoServicio DELETE success',

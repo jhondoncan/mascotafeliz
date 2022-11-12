@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -7,23 +8,24 @@ import {
   Where,
 } from '@loopback/repository';
 import {
-  post,
-  param,
+  del,
   get,
   getModelSchemaRef,
+  param,
   patch,
+  post,
   put,
-  del,
   requestBody,
   response,
 } from '@loopback/rest';
 import {Prospecto} from '../models';
 import {ProspectoRepository} from '../repositories';
 
+@authenticate('administrador') // ?: Autorizar adminstrador
 export class ProspectoController {
   constructor(
     @repository(ProspectoRepository)
-    public prospectoRepository : ProspectoRepository,
+    public prospectoRepository: ProspectoRepository,
   ) {}
 
   @post('/prospectos')
@@ -106,7 +108,8 @@ export class ProspectoController {
   })
   async findById(
     @param.path.string('id') id: string,
-    @param.filter(Prospecto, {exclude: 'where'}) filter?: FilterExcludingWhere<Prospecto>
+    @param.filter(Prospecto, {exclude: 'where'})
+    filter?: FilterExcludingWhere<Prospecto>,
   ): Promise<Prospecto> {
     return this.prospectoRepository.findById(id, filter);
   }

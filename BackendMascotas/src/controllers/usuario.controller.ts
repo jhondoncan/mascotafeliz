@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {service} from '@loopback/core';
 import {
   Count,
@@ -25,6 +26,7 @@ import {AutenticacionService, NotificacionService} from '../services';
 
 require('dotenv').config();
 
+@authenticate('administrador') // ?: Autorizar adminstrador
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
@@ -35,6 +37,7 @@ export class UsuarioController {
     public servicioNotificacion: NotificacionService,
   ) {}
 
+  @authenticate.skip() // ?: No requiere autenticación
   @post('/login', {
     responses: {
       '200': {
@@ -64,6 +67,7 @@ export class UsuarioController {
     }
   }
 
+  @authenticate.skip() // !: No requiere autenticación
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
