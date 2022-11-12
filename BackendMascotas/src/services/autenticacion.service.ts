@@ -27,14 +27,13 @@ export class AutenticacionService {
     return claveCifrada;
   }
 
-  descifrarClave(clave: string) {}
-
   identificarUsuario(correo: string, clave: string) {
-    let claveCifrada = this.cicrarClave(clave);
+    const claveCifrada = this.cicrarClave(clave);
     try {
-      let p = this.usuarioRepository.findOne({
+      const p = this.usuarioRepository.findOne({
         where: {correo: correo, password: claveCifrada},
       });
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       if (p) {
         return p;
       }
@@ -45,7 +44,7 @@ export class AutenticacionService {
   }
 
   generarTokenJWT(usuario: Usuario) {
-    let token = jwt.sign(
+    const token = jwt.sign(
       {
         data: {
           id: usuario.id,
@@ -62,7 +61,7 @@ export class AutenticacionService {
 
   verificarTokenJWT(token: string) {
     try {
-      let decoded = jwt.verify(token, process.env.CLAVE_JWT);
+      const decoded = jwt.verify(token, process.env.CLAVE_JWT);
       if (decoded) {
         return decoded;
       }
