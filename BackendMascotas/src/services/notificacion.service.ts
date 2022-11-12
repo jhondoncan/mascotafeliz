@@ -31,7 +31,7 @@ export class NotificacionService {
       .then(() => {
         console.log('Correo electrónico enviado');
       })
-      .catch((error: any) => {
+      .catch((error: unknown) => {
         console.error(error);
       });
   }
@@ -55,10 +55,10 @@ export class NotificacionService {
 
     axios
       .request(options)
-      .then(function (response: {data: any}) {
+      .then(function (response: {data: unknown}) {
         console.log(response.data);
       })
-      .catch(function (error: any) {
+      .catch(function (error: unknown) {
         console.error(error);
       });
   }
@@ -74,6 +74,6 @@ export class NotificacionService {
         from: process.env.TWILIO_PHONE_NUMBER,
         to: '+57' + destino,
       })
-      .then((message: {sid: any}) => console.log(message.sid));
+      .then((message: {sid: unknown}) => console.log(message.sid));
   }
 }

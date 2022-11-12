@@ -43,12 +43,12 @@ export class UsuarioController {
     },
   })
   async login(@requestBody() credenciales: Credenciales) {
-    let p = await this.servicioAutenticacion.identificarUsuario(
+    const p = await this.servicioAutenticacion.identificarUsuario(
       credenciales.correo,
       credenciales.password,
     );
     if (p) {
-      let token = this.servicioAutenticacion.generarTokenJWT(p);
+      const token = this.servicioAutenticacion.generarTokenJWT(p);
       return {
         datos: {
           id: p.id,
@@ -87,13 +87,13 @@ export class UsuarioController {
     usuario.password = claveCifrada;
     const p = await this.usuarioRepository.create(usuario);
 
-    // TODO: Enviar correo electrónico con la clave
+    // !: Enviar correo electrónico con la clave
     const destino = usuario.correo;
     const asunto = '¡Bienvenid@ a MascotaFeliz!';
     const cuerpo = `¡Hola <strong>${usuario.nombres}</strong>! </br>Bienvenid@ a MascotaFeliz. </br>Tu clave de acceso al portal es: <strong>${clave}</strong> </br> Por favor no compartas tu clave con nadie.`;
     this.servicioNotificacion.enviarCorreo(destino, asunto, cuerpo);
 
-    // TODO: Enviar SMS con la clave
+    // !: Enviar SMS con la clave
     const mensaje = `¡Hola ${usuario.nombres}! Bienvenid@ a MascotaFeliz. Tu clave de acceso al portal es: ${clave}`;
     this.servicioNotificacion.enviarSMSTwilio(usuario.telefono, mensaje);
 
