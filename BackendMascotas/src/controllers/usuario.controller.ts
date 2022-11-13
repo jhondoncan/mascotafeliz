@@ -98,7 +98,7 @@ export class UsuarioController {
     this.servicioNotificacion.enviarCorreo(destino, asunto, cuerpo);
 
     // !: Enviar SMS con la clave
-    const mensaje = `¡Hola ${usuario.nombres}! Bienvenid@ a MascotaFeliz. Tu clave de acceso al portal es: ${clave}`;
+    const mensaje = `Hola ${usuario.nombres}, bienvenid@ a MascotaFeliz. Tu clave de acceso al portal es: ${clave}`;
     this.servicioNotificacion.enviarSMSTwilio(usuario.telefono, mensaje);
 
     return p;

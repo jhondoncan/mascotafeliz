@@ -30,9 +30,11 @@ function crearUsuario() {
         .then((res) => res.json())
         .then((mensaje) => {
             console.log(mensaje);
-
+            if (!mensaje.id) {
+                alertaUsuarioError();
+            }
+            alertaUsuarioCreado();
         });
-    alertaUsuarioCreado();
 }
 
 function alertaUsuarioCreado() {
