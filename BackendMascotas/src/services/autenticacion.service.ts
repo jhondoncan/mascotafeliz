@@ -46,6 +46,7 @@ export class AutenticacionService {
   generarTokenJWT(usuario: Usuario) {
     const token = jwt.sign(
       {
+        exp: Math.floor(Date.now() / 1000) + 60 * 60, // Expire in 1 hour
         data: {
           id: usuario.id,
           correo: usuario.correo,
