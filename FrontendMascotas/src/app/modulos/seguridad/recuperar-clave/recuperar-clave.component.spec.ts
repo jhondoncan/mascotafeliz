@@ -11,7 +11,9 @@ describe('RecuperarClaveComponent', () => {
       declarations: [ RecuperarClaveComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(RecuperarClaveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

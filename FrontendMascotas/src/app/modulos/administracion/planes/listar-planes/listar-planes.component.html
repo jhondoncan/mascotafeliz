@@ -1,0 +1,128 @@
+<main>
+    <section class="section section-shaped section-lg">
+        <div class="shape shape-style-1 shape-default">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="container pt-lg-md">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card bg-secondary shadow border-0 ">
+                        <div class="card-header border-0 text-center ">
+                            <h3 class="mb-0"><strong>Lista de planes</strong></h3>
+                        </div>
+                        <div class="table-responsive table-bordered px-lg-2 py-lg-2">
+                            <table class="table align-items-center  table-flush">
+                                <thead class="thead-light text-center">
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Diamante
+                                        </td>
+                                        <td>
+                                            $ 200.000
+                                        </td>
+                                        <td>
+                                            Plan VIP clientes frecuentes
+                                        </td>
+
+
+                                        <td class="text-center">
+
+                                            <button [routerLink]="['/editar-plan']" class="btn btn-sm btn-info"
+                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button (click)="eliminarPlan()" class="btn btn-sm btn-danger"
+                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Platino
+                                        </td>
+                                        <td>
+                                            $ 150.000
+                                        </td>
+                                        <td>
+                                            Plan VIP clientes nuevos
+                                        </td>
+
+                                        <td class="text-center">
+
+                                            <button [routerLink]="['/editar-plan']" class="btn btn-sm btn-info"
+                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button (click)="eliminarPlan()" class="btn btn-sm btn-danger"
+                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Oro
+                                        </td>
+                                        <td>
+                                            $ 100.000
+                                        </td>
+                                        <td>
+                                            Plan clientes nuevos
+                                        </td>
+
+                                        <td class="text-center">
+
+                                            <button [routerLink]="['/editar-plan']" class="btn btn-sm btn-info"
+                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button (click)="eliminarPlan()" class="btn btn-sm btn-danger"
+                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer py-4">
+                            <nav aria-label="...">
+                                <ul class="pagination justify-content-end mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" tabindex="-1">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                            <span class="sr-only">Anterior</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            <span class="sr-only">Siguiente</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -11,7 +11,9 @@ describe('EditarUsuarioComponent', () => {
       declarations: [ EditarUsuarioComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(EditarUsuarioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

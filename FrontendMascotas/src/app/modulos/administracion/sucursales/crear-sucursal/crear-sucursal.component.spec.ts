@@ -11,7 +11,9 @@ describe('CrearSucursalComponent', () => {
       declarations: [ CrearSucursalComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(CrearSucursalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

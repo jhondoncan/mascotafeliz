@@ -11,7 +11,9 @@ describe('EditarSucursalComponent', () => {
       declarations: [ EditarSucursalComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(EditarSucursalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

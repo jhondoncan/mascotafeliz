@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-crear-usuario',
-  templateUrl: './crear-usuario.component.html',
-  styleUrls: ['./crear-usuario.component.css']
+  selector: "app-crear-usuario",
+  templateUrl: "./crear-usuario.component.html",
+  styleUrls: ["./crear-usuario.component.css"],
 })
-export class CrearUsuarioComponent {
+export class CrearUsuarioComponent implements OnInit {
+  focus;
+  focus1;
+  focus2;
+  constructor() {}
 
+  ngOnInit(): void {}
 }

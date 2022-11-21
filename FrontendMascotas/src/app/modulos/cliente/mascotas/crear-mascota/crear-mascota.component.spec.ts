@@ -11,7 +11,9 @@ describe('CrearMascotaComponent', () => {
       declarations: [ CrearMascotaComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(CrearMascotaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

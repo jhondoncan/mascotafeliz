@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-recuperar-clave',
-  templateUrl: './recuperar-clave.component.html',
-  styleUrls: ['./recuperar-clave.component.css']
+  selector: "app-recuperar-clave",
+  templateUrl: "./recuperar-clave.component.html",
+  styleUrls: ["./recuperar-clave.component.css"],
 })
-export class RecuperarClaveComponent {
+export class RecuperarClaveComponent implements OnInit {
+  focus;
+  focus1;
+  constructor() {}
 
+  ngOnInit(): void {}
 }

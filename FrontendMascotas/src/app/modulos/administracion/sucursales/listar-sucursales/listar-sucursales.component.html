@@ -1,0 +1,138 @@
+<main>
+    <section class="section section-shaped section-lg">
+        <div class="shape shape-style-1 shape-default">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="container pt-lg-md">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="card bg-secondary shadow border-0 ">
+                        <div class="card-header border-0 text-center ">
+                            <h3 class="mb-0"><strong>Lista de sucursales</strong></h3>
+                        </div>
+                        <div class="table-responsive table-bordered px-lg-2 py-lg-2">
+                            <table class="table align-items-center  table-flush">
+                                <thead class="thead-light text-center">
+                                    <tr>
+                                        <th scope="col">Departamento</th>
+                                        <th scope="col">Ciudad</th>
+                                        <th scope="col">Dirección</th>
+                                        <th scope="col">Celular</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Huila
+                                        </td>
+                                        <td>
+                                            Neiva
+                                        </td>
+                                        <td>
+                                            Calle 9 # 6 - 19 Centro
+                                        </td>
+                                        <td>
+                                            3134578908
+                                        </td>
+
+
+                                        <td class="text-center">
+
+                                            <button [routerLink]="['/editar-sucursal']" class="btn btn-sm btn-info"
+                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button (click)="eliminarSucursal()" class="btn btn-sm btn-danger"
+                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Bogotá DC
+                                        </td>
+                                        <td>
+                                            Bogotá
+                                        </td>
+                                        <td>
+                                            Cl 105 # 15 - 20 Pinos del Bosque
+                                        </td>
+                                        <td>
+                                            3004568734
+                                        </td>
+
+                                        <td class="text-center">
+
+                                            <button [routerLink]="['/editar-sucursal']" class="btn btn-sm btn-info"
+                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button (click)="eliminarSucursal()" class="btn btn-sm btn-danger"
+                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Antioquia
+                                        </td>
+                                        <td>
+                                            Medellin
+                                        </td>
+                                        <td>
+                                            Carrera 15 # 50 - 34 El Poblado
+                                        </td>
+                                        <td>
+                                            3152345678
+                                        </td>
+
+                                        <td class="text-center">
+
+                                            <button [routerLink]="['/editar-sucursal']" class="btn btn-sm btn-info"
+                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                                            <button (click)="eliminarSucursal()" class="btn btn-sm btn-danger"
+                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer py-4">
+                            <nav aria-label="...">
+                                <ul class="pagination justify-content-end mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" tabindex="-1">
+                                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                                            <span class="sr-only">Anterior</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            <span class="sr-only">Siguiente</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -11,7 +11,9 @@ describe('EditarPlanComponent', () => {
       declarations: [ EditarPlanComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(EditarPlanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
