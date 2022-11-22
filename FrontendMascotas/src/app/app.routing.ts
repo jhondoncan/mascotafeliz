@@ -4,8 +4,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
 
 import { HomeComponent } from "./home/home.component";
-import { ProfileComponent } from "./profile/profile.component";
-import { SignupComponent } from "./signup/signup.component";
 import { LandingComponent } from "./landing/landing.component";
 import { LoginComponent } from "./modulos/seguridad/login/login.component";
 import { RegistroComponent } from "./modulos/cliente/registro/registro.component";
@@ -24,12 +22,13 @@ import { ListarMascotasComponent } from "./modulos/cliente/mascotas/listar-masco
 import { ListarPlanesComponent } from "./modulos/administracion/planes/listar-planes/listar-planes.component";
 import { ListarSucursalesComponent } from "./modulos/administracion/sucursales/listar-sucursales/listar-sucursales.component";
 import { ListarProspectosComponent } from "./modulos/administracion/prospectos/listar-prospectos/listar-prospectos.component";
+import { InicioComponent } from "./plantilla/inicio/inicio.component";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
-  { path: "user-profile", component: ProfileComponent },
+  { path: "inicio", component: InicioComponent },
   { path: "landing", component: LandingComponent },
-  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "", redirectTo: "inicio", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent },
   { path: "recuperar-clave", component: RecuperarClaveComponent },

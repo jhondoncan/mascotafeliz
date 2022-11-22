@@ -17,6 +17,7 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { BarraNavegacionComponent } from './plantilla/barra-navegacion/barra-navegacion.component';
 import { PiePaginaComponent } from './plantilla/pie-pagina/pie-pagina.component';
+import { InicioComponent } from './plantilla/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PiePaginaComponent } from './plantilla/pie-pagina/pie-pagina.component'
     FooterComponent,
     LoginComponent,
     BarraNavegacionComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
