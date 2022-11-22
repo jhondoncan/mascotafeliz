@@ -3,8 +3,6 @@ import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
 
-import { HomeComponent } from "./home/home.component";
-import { LandingComponent } from "./landing/landing.component";
 import { LoginComponent } from "./modulos/seguridad/login/login.component";
 import { RegistroComponent } from "./modulos/cliente/registro/registro.component";
 import { RecuperarClaveComponent } from "./modulos/seguridad/recuperar-clave/recuperar-clave.component";
@@ -23,12 +21,11 @@ import { ListarPlanesComponent } from "./modulos/administracion/planes/listar-pl
 import { ListarSucursalesComponent } from "./modulos/administracion/sucursales/listar-sucursales/listar-sucursales.component";
 import { ListarProspectosComponent } from "./modulos/administracion/prospectos/listar-prospectos/listar-prospectos.component";
 import { InicioComponent } from "./plantilla/inicio/inicio.component";
+import { ErrorComponent } from "./plantilla/error/error.component";
 
 const routes: Routes = [
-  { path: "home", component: HomeComponent },
   { path: "inicio", component: InicioComponent },
-  { path: "landing", component: LandingComponent },
-  { path: "", redirectTo: "inicio", pathMatch: "full" },
+  { path: "", pathMatch: "full", redirectTo: "inicio" },
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent },
   { path: "recuperar-clave", component: RecuperarClaveComponent },
@@ -46,6 +43,7 @@ const routes: Routes = [
   { path: "editar-sucursal", component: EditarSucursalComponent },
   { path: "sucursales", component: ListarSucursalesComponent },
   { path: "usuarios", component: ListarUsuariosComponent },
+  { path: "**", component: ErrorComponent },
 ];
 
 @NgModule({
