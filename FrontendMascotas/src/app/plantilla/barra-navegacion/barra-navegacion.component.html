@@ -25,8 +25,8 @@
                     </div>
                 </div>
             </div>
-            <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-                <li class="nav-item dropdown">
+            <ul class="navbar-nav navbar-nav-hover ml-auto">
+                <li *ngIf="seInicioSesion" class="nav-item dropdown">
                     <a class="nav-link no-caret" data-toggle="dropdown" role="button">
                         <span class="nav-link-inner--text">Usuarios</span>
                     </a>
@@ -39,7 +39,7 @@
 
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li *ngIf="seInicioSesion" class="nav-item dropdown">
                     <a class="nav-link no-caret" data-toggle="dropdown" role="button">
 
                         <span class="nav-link-inner--text">Mascotas</span>
@@ -51,7 +51,7 @@
 
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li *ngIf="seInicioSesion" class="nav-item dropdown">
                     <a class="nav-link no-caret" data-toggle="dropdown" role="button">
 
                         <span class="nav-link-inner--text">Planes</span>
@@ -61,7 +61,7 @@
                         <a [routerLink]="['/planes']" class="dropdown-item">Lista de planes</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li *ngIf="seInicioSesion" class="nav-item dropdown">
                     <a class="nav-link no-caret" data-toggle="dropdown" role="button">
 
                         <span class="nav-link-inner--text">Sucursales</span>
@@ -71,7 +71,7 @@
                         <a [routerLink]="['/sucursales']" class="dropdown-item">Lista de sucursales</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li *ngIf="seInicioSesion" class="nav-item dropdown">
                     <a class="nav-link no-caret" data-toggle="dropdown" role="button">
 
                         <span class="nav-link-inner--text">Prospectos</span>
@@ -82,21 +82,22 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a [routerLink]="['/contacto']" class="nav-link no-caret" data-toggle="dropdown" role="button">
                         <span class="nav-link-inner--text">Contáctanos</span>
                     </a>
 
-                </li>
+                </li> -->
             </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-                <li class="nav-item d-none d-lg-block ml-lg-4">
+                <li *ngIf="!seInicioSesion" class="nav-item d-none d-lg-block ml-lg-4">
+                    <a [routerLink]="['/login']" class="btn btn-neutral">
 
-
-                    <a [routerLink]="['/login']" class="btn btn-neutral btn-icon">
-                        <!--  <span class="btn-inner--icon">
-              <i class="fa fa-user-plus mr-2"></i>
-            </span> -->
+                        <span class="nav-link-inner--text">Iniciar sesión</span>
+                    </a>
+                </li>
+                <li *ngIf="seInicioSesion" class="nav-item d-none d-lg-block ml-lg-4">
+                    <a (click)="cerrarSesion()" class="btn btn-neutral">
                         <span class="nav-link-inner--text">Cerrar sesión</span>
                     </a>
                 </li>

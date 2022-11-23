@@ -22,11 +22,13 @@ import { ListarSucursalesComponent } from "./modulos/administracion/sucursales/l
 import { ListarProspectosComponent } from "./modulos/administracion/prospectos/listar-prospectos/listar-prospectos.component";
 import { InicioComponent } from "./plantilla/inicio/inicio.component";
 import { ErrorComponent } from "./plantilla/error/error.component";
+import { LogoutComponent } from "./modulos/seguridad/logout/logout.component";
 
 const routes: Routes = [
   { path: "inicio", component: InicioComponent },
   { path: "", pathMatch: "full", redirectTo: "inicio" },
   { path: "login", component: LoginComponent },
+  { path: "logout", component: LogoutComponent },
   { path: "registro", component: RegistroComponent },
   { path: "recuperar-clave", component: RecuperarClaveComponent },
   { path: "contacto", component: CrearProspectoComponent },

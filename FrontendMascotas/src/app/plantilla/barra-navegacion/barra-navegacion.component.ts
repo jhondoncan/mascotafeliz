@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, NavigationEnd, NavigationStart } from "@angular/router";
 import { Location, PopStateEvent } from "@angular/common";
+import { SeguridadService } from "src/app/servicios/seguridad.service";
+import { Subscription } from "rxjs";
+import { ModeloIdentificar } from "src/app/modelo/identificar.modelo";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-barra-navegacion",
@@ -12,9 +16,23 @@ export class BarraNavegacionComponent implements OnInit {
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
 
-  constructor(public location: Location, private router: Router) {}
+  seInicioSesion: boolean = false;
+
+  subscribirse: Subscription = new Subscription();
+
+  constructor(
+    public location: Location,
+    private router: Router,
+    private seguridadServicio: SeguridadService
+  ) {}
 
   ngOnInit() {
+    this.subscribirse = this.seguridadServicio
+      .obtenerDatosUsuarioEnSesion()
+      .subscribe((datos: ModeloIdentificar) => {
+        this.seInicioSesion = datos.estaIdentificado;
+      });
+
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
       if (event instanceof NavigationStart) {
@@ -48,5 +66,22 @@ export class BarraNavegacionComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  cerrarSesion() {
+    Swal.fire({
+      title: "",
+      text: "¿Desea cerrar la sesión?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#2a82eb",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, cerrar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(["/logout"]);
+      }
+    });
   }
 }

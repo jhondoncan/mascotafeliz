@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { SeguridadService } from "src/app/servicios/seguridad.service";
 import Swal from "sweetalert2";
 
 @Component({
@@ -29,7 +31,14 @@ export class ListarPlanesComponent implements OnInit {
     });
   }
 
-  constructor() {}
+  constructor(
+    private servicioSeguridad: SeguridadService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (!this.servicioSeguridad.obtenerSession()) {
+      this.router.navigate(["/error"]);
+    }
+  }
 }
