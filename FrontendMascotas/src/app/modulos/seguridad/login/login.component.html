@@ -19,14 +19,15 @@
                             <div class="text-center text-muted mt-2 mb-4">
                                 <h3><strong>Iniciar sesión </strong></h3>
                             </div>
-                            <form role="form">
+                            <form [formGroup]="formularioLogin" (ngSubmit)="identificarUsuario()">
                                 <div class="form-group mb-3" [ngClass]="{'focused':focus1===true}">
                                     <div class="input-group input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Correo" type="email"
-                                            (focus)="focus=true" (blur)="focus1=false" autofocus autocomplete="off">
+                                        <input formControlName="correo" class="form-control" placeholder="Correo"
+                                            type="email" (focus)="focus=true" (blur)="focus1=false" autofocus
+                                            autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -35,12 +36,12 @@
                                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                         </div>
                                         <input class="form-control" placeholder="Contraseña" type="password"
-                                            (focus)="focus1=true" (blur)="focus1=false">
+                                            (focus)="focus1=true" (blur)="focus1=false" formControlName="password">
                                     </div>
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary mt-3">Entrar</button>
+                                    <button type="submit" class="btn btn-primary mt-3">Entrar</button>
                                 </div>
                             </form>
                         </div>
