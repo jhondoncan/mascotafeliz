@@ -26,6 +26,7 @@ import { LogoutComponent } from "./modulos/seguridad/logout/logout.component";
 import { EliminarUsuarioComponent } from "./modulos/administracion/usuarios/eliminar-usuario/eliminar-usuario.component";
 import { ValidadorSesionGuard } from "./guardianes/validador-sesion.guard";
 import { EliminarProspectoComponent } from "./modulos/administracion/prospectos/eliminar-prospecto/eliminar-prospecto.component";
+import { EliminarSucursalComponent } from "./modulos/administracion/sucursales/eliminar-sucursal/eliminar-sucursal.component";
 
 const routes: Routes = [
   { path: "inicio", component: InicioComponent },
@@ -96,8 +97,13 @@ const routes: Routes = [
     canActivate: [ValidadorSesionGuard],
   },
   {
-    path: "editar-sucursal",
+    path: "editar-sucursal/:id",
     component: EditarSucursalComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "eliminar-sucursal/:id",
+    component: EliminarSucursalComponent,
     canActivate: [ValidadorSesionGuard],
   },
   {

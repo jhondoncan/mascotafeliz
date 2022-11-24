@@ -29,77 +29,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let sucursal of listadoSucursales">
                                         <td>
-                                            Huila
+                                            {{sucursal.departamento}}
                                         </td>
                                         <td>
-                                            Neiva
+                                            {{sucursal.ciudad}}
                                         </td>
                                         <td>
-                                            Calle 9 # 6 - 19 Centro
+                                            {{sucursal.direccion}}
                                         </td>
                                         <td>
-                                            3134578908
-                                        </td>
-
-
-                                        <td class="text-center">
-
-                                            <button [routerLink]="['/editar-sucursal']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarSucursal()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            Bogotá DC
-                                        </td>
-                                        <td>
-                                            Bogotá
-                                        </td>
-                                        <td>
-                                            Cl 105 # 15 - 20 Pinos del Bosque
-                                        </td>
-                                        <td>
-                                            3004568734
+                                            {{sucursal.telefono}}
                                         </td>
 
                                         <td class="text-center">
 
-                                            <button [routerLink]="['/editar-sucursal']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarSucursal()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
+                                            <button [routerLink]="['/editar-sucursal/'+sucursal.id]"
+                                                class="btn btn-sm btn-info" type="button"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></button>
+                                            <button (click)="eliminarSucursal(sucursal.id)"
+                                                class="btn btn-sm btn-danger" type="button"><i class="fa fa-trash"
+                                                    aria-hidden="true"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            Antioquia
-                                        </td>
-                                        <td>
-                                            Medellin
-                                        </td>
-                                        <td>
-                                            Carrera 15 # 50 - 34 El Poblado
-                                        </td>
-                                        <td>
-                                            3152345678
-                                        </td>
 
-                                        <td class="text-center">
-
-                                            <button [routerLink]="['/editar-sucursal']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarSucursal()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>

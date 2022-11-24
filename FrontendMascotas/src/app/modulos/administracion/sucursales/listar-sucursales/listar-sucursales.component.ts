@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { ModeloSucursal } from "src/app/modelo/sucursal.modelo";
+import { SucursalService } from "src/app/servicios/sucursal.service";
 import Swal from "sweetalert2";
 
 @Component({
@@ -7,7 +10,29 @@ import Swal from "sweetalert2";
   styleUrls: ["./listar-sucursales.component.css"],
 })
 export class ListarSucursalesComponent implements OnInit {
-  eliminarSucursal() {
+  listadoSucursales: ModeloSucursal[] = [];
+
+  constructor(
+    private sucrusalServicio: SucursalService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.sucrusalServicio.obtenerSucursales().subscribe((sucursales) => {
+      this.listadoSucursales = sucursales;
+    });
+  }
+
+  obtenerListadoSucursales() {
+    this.sucrusalServicio
+      .obtenerSucursales()
+      .subscribe((datos: ModeloSucursal[]) => {
+        this.listadoSucursales = datos;
+      });
+  }
+
+  /* MENSAJES DE ALERTAS SWEETALERT2 */
+  eliminarSucursal(id: String) {
     Swal.fire({
       title: "",
       text: "¿Deseas eliminar esta sucursal?",
@@ -19,17 +44,8 @@ export class ListarSucursalesComponent implements OnInit {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "",
-          text: "La sucursal ha sido eliminada.",
-          icon: "success",
-          confirmButtonColor: "#5E72E4",
-        });
+        this.router.navigate(["/eliminar-sucursal/", id]);
       }
     });
   }
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

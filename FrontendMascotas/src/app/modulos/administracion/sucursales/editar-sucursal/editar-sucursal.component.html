@@ -18,8 +18,9 @@
                             <div class="text-center text-muted mt-2 mb-4">
                                 <h4><strong>Editar sucursal</strong></h4>
                             </div>
-                            <form role="form">
+                            <form [formGroup]="formularioSucursalEditar" (ngSubmit)="editarSucursal()">
 
+                                <input formControlName="id" type="hidden">
 
                                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
                                     <div class="input-group input-group-alternative mb-3">
@@ -27,8 +28,9 @@
                                             <span class="input-group-text"><i class="fa fa-globe"
                                                     aria-hidden="true"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Departamento" type="text"
-                                            (focus)="focus=true" (blur)="focus1=false" autofocus autocomplete="off">
+                                        <input formControlName="departamento" class="form-control"
+                                            placeholder="Departamento" type="text" (focus)="focus=true"
+                                            (blur)="focus1=false" autofocus autocomplete="off">
                                     </div>
                                 </div>
 
@@ -38,8 +40,8 @@
                                             <span class="input-group-text"><i class="fa fa-map-marker"
                                                     aria-hidden="true"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Ciudad" type="text"
-                                            (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
+                                        <input formControlName="ciudad" class="form-control" placeholder="Ciudad"
+                                            type="text" (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -48,8 +50,8 @@
                                             <span class="input-group-text"><i class="fa fa-map-signs"
                                                     aria-hidden="true"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Direccion" type="text"
-                                            (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
+                                        <input formControlName="direccion" class="form-control" placeholder="Direccion"
+                                            type="text" (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -57,13 +59,13 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Celular" type="text"
-                                            (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
+                                        <input formControlName="telefono" class="form-control" placeholder="Celular"
+                                            type="text" (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
                                     </div>
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary mt-3 mb-3">
+                                    <button type="submit" class="btn btn-primary mt-3 mb-3">
                                         Guardar cambios
                                     </button>
                                     <button [routerLink]="['/sucursales']" type="button"
