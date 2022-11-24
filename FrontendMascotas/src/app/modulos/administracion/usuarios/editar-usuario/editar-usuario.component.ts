@@ -136,5 +136,6 @@ export class EditarUsuarioComponent implements OnInit {
       confirmButtonColor: "#5E72E4",
       confirmButtonText: "Aceptar",
     });
+    this.router.navigate(["/usuarios"]);
   }
 }

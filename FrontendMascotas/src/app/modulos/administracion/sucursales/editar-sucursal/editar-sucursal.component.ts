@@ -126,5 +126,6 @@ export class EditarSucursalComponent implements OnInit {
       confirmButtonColor: "#5E72E4",
       confirmButtonText: "Aceptar",
     });
+    this.router.navigate(["/sucursales"]);
   }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { ModeloPlan } from "src/app/modelo/plan.modelo";
+import { PlanService } from "src/app/servicios/plan.service";
 import Swal from "sweetalert2";
 
 @Component({
@@ -7,7 +10,24 @@ import Swal from "sweetalert2";
   styleUrls: ["./listar-planes.component.css"],
 })
 export class ListarPlanesComponent implements OnInit {
-  eliminarPlan() {
+  listadoPlanes: ModeloPlan[] = [];
+
+  constructor(private planServicio: PlanService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.planServicio.obtenerPlanes().subscribe((planes) => {
+      this.listadoPlanes = planes;
+    });
+  }
+
+  obtenerListadoUsuarios() {
+    this.planServicio.obtenerPlanes().subscribe((datos: ModeloPlan[]) => {
+      this.listadoPlanes = datos;
+    });
+  }
+
+  /* MENSAJES DE ALERTAS SWEETALERT2 */
+  eliminarPlan(id: String) {
     Swal.fire({
       title: "",
       text: "¿Deseas eliminar este plan?",
@@ -19,17 +39,8 @@ export class ListarPlanesComponent implements OnInit {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "",
-          text: "El plan ha sido eliminado.",
-          icon: "success",
-          confirmButtonColor: "#5E72E4",
-        });
+        this.router.navigate(["/eliminar-plan/", id]);
       }
     });
   }
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

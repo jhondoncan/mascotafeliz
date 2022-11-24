@@ -28,68 +28,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let plan of listadoPlanes">
                                         <td>
-                                            Diamante
+                                            {{plan.nombre}}
                                         </td>
                                         <td>
-                                            $ 200.000
+                                            $ {{plan.precio}}
                                         </td>
                                         <td>
-                                            Plan VIP clientes frecuentes
+                                            {{plan.descripcion}}
                                         </td>
 
 
                                         <td class="text-center">
 
-                                            <button [routerLink]="['/editar-plan']" class="btn btn-sm btn-info"
+                                            <button [routerLink]="['/editar-plan/'+plan.id]" class="btn btn-sm btn-info"
                                                 type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarPlan()" class="btn btn-sm btn-danger"
+                                            <button (click)="eliminarPlan(plan.id)" class="btn btn-sm btn-danger"
                                                 type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td>
-                                            Platino
-                                        </td>
-                                        <td>
-                                            $ 150.000
-                                        </td>
-                                        <td>
-                                            Plan VIP clientes nuevos
-                                        </td>
-
-                                        <td class="text-center">
-
-                                            <button [routerLink]="['/editar-plan']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarPlan()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Oro
-                                        </td>
-                                        <td>
-                                            $ 100.000
-                                        </td>
-                                        <td>
-                                            Plan clientes nuevos
-                                        </td>
-
-                                        <td class="text-center">
-
-                                            <button [routerLink]="['/editar-plan']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarPlan()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>

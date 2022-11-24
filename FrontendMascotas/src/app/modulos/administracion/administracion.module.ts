@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EliminarUsuarioComponent } from './usuarios/eliminar-usuario/eliminar-usuario.component';
 import { EliminarProspectoComponent } from './prospectos/eliminar-prospecto/eliminar-prospecto.component';
 import { EliminarSucursalComponent } from './sucursales/eliminar-sucursal/eliminar-sucursal.component';
+import { EliminarPlanComponent } from './planes/eliminar-plan/eliminar-plan.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { EliminarSucursalComponent } from './sucursales/eliminar-sucursal/elimin
     EliminarUsuarioComponent,
     EliminarProspectoComponent,
     EliminarSucursalComponent,
+    EliminarPlanComponent,
   ],
   imports: [
     CommonModule,
