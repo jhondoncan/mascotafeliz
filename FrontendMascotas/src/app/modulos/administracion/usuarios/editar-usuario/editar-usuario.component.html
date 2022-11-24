@@ -18,16 +18,18 @@
                             <div class="text-center text-muted mt-2 mb-4">
                                 <h4><strong>Editar usuario</strong></h4>
                             </div>
-                            <form role="form">
+                            <form [formGroup]="formularioUsuarioEditar" (ngSubmit)="editarUsuario()">
 
+                                <input formControlName="id" type="hidden">
 
                                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
                                     <div class="input-group input-group-alternative mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-credit-card"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Cédula" type="text"
-                                            (focus)="focus=true" (blur)="focus1=false" autofocus autocomplete="off">
+                                        <input formControlName="cedula" class="form-control" placeholder="Cédula"
+                                            type="text" (focus)="focus=true" (blur)="focus1=false" autofocus
+                                            autocomplete="off">
                                     </div>
                                 </div>
 
@@ -36,8 +38,8 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Nombres" type="text"
-                                            (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
+                                        <input formControlName="nombres" class="form-control" placeholder="Nombres"
+                                            type="text" (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -45,8 +47,8 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Apellidos" type="text"
-                                            (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
+                                        <input formControlName="apellidos" class="form-control" placeholder="Apellidos"
+                                            type="text" (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="form-group" [ngClass]="{'focused':focus1===true}">
@@ -54,8 +56,8 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Celular" type="text"
-                                            (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
+                                        <input formControlName="telefono" class="form-control" placeholder="Celular"
+                                            type="text" (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
                                     </div>
                                 </div>
 
@@ -64,8 +66,8 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Correo" type="email"
-                                            (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
+                                        <input formControlName="correo" class="form-control" placeholder="Correo"
+                                            type="email" (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
                                     </div>
                                 </div>
 
@@ -75,13 +77,13 @@
                                             <span class="input-group-text"><i class="fa fa-shield"
                                                     aria-hidden="true"></i></span>
                                         </div>
-                                        <input class="form-control" placeholder="Rol" type="text" (focus)="focus1=true"
-                                            (blur)="focus1=false" autocomplete="off">
+                                        <input formControlName="rol" class="form-control" placeholder="Rol" type="text"
+                                            (focus)="focus1=true" (blur)="focus1=false" autocomplete="off">
                                     </div>
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary mt-3 mb-3">
+                                    <button type="submit" class="btn btn-primary mt-3 mb-3">
                                         Guardar cambios
                                     </button>
                                     <button [routerLink]="['/usuarios']" type="button" class="btn btn-danger mt-3 mb-3">

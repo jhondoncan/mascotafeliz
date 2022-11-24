@@ -23,6 +23,7 @@ import { ListarProspectosComponent } from "./modulos/administracion/prospectos/l
 import { InicioComponent } from "./plantilla/inicio/inicio.component";
 import { ErrorComponent } from "./plantilla/error/error.component";
 import { LogoutComponent } from "./modulos/seguridad/logout/logout.component";
+import { EliminarUsuarioComponent } from "./modulos/administracion/usuarios/eliminar-usuario/eliminar-usuario.component";
 
 const routes: Routes = [
   { path: "inicio", component: InicioComponent },
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path: "editar-mascota", component: EditarMascotaComponent },
   { path: "mascotas", component: ListarMascotasComponent },
   { path: "crear-usuario", component: CrearUsuarioComponent },
-  { path: "editar-usuario", component: EditarUsuarioComponent },
+  { path: "editar-usuario/:id", component: EditarUsuarioComponent },
+  { path: "eliminar-usuario/:id", component: EliminarUsuarioComponent },
   { path: "crear-plan", component: CrearPlanComponent },
   { path: "editar-plan", component: EditarPlanComponent },
   { path: "planes", component: ListarPlanesComponent },

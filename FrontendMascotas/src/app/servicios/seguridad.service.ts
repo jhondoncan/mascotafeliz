@@ -49,7 +49,10 @@ export class SeguridadService {
     this.router.navigate(["/inicio"]);
   }
 
-  seHaIniciadoSesion() {}
+  seHaIniciadoSesion() {
+    let datosUsuario = localStorage.getItem("datosSesion");
+    return datosUsuario != null;
+  }
 
   verificarSesionActual() {
     let datosUsuario = this.obtenerSession();
@@ -64,5 +67,13 @@ export class SeguridadService {
 
   obtenerDatosUsuarioEnSesion() {
     return this.datosUsuarioEnSesion.asObservable();
+  }
+
+  obtenerToken() {
+    let datosUsuario = this.obtenerSession();
+    if (!datosUsuario) {
+      return null;
+    }
+    return datosUsuario.token;
   }
 }

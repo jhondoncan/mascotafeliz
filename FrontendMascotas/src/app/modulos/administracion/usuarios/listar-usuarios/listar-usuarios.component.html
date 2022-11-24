@@ -32,38 +32,51 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let usuario of listadoUsuarios">
                                         <td>
-                                            1079607161
+                                            {{usuario.cedula}}
                                         </td>
                                         <td>
-                                            Jhon
+                                            {{usuario.nombres}}
                                         </td>
                                         <td>
-                                            Doncan
+                                            {{usuario.apellidos}}
                                         </td>
                                         <td>
-                                            3132796902
+                                            {{usuario.telefono}}
                                         </td>
                                         <td>
-                                            litdoncan@outlook.com
+                                            {{usuario.correo}}
                                         </td>
-                                        <td class="text-center">
+
+                                        <td class="text-center" *ngIf="usuario.rol == 'administrador'">
                                             <span
-                                                class="badge badge-pill badge-primary text-uppercase">Administrador</span>
-
+                                                class="badge badge-pill badge-success text-uppercase">{{usuario.rol}}</span>
                                         </td>
+                                        <td class="text-center" *ngIf="usuario.rol == 'cliente'">
+                                            <span
+                                                class="badge badge-pill badge-primary text-uppercase">{{usuario.rol}}</span>
+                                        </td>
+                                        <td class="text-center" *ngIf="usuario.rol == 'asesor'">
+                                            <span
+                                                class="badge badge-pill badge-info text-uppercase">{{usuario.rol}}</span>
+                                        </td>
+                                        <td class="text-center"
+                                            *ngIf="usuario.rol !== 'asesor' && usuario.rol !== 'administrador' && usuario.rol !== 'cliente'">
+                                            <span class="badge badge-pill badge-danger text-uppercase">SIN ROL</span>
+                                        </td>
+
+
                                         <td class="text-center">
-
-                                            <button [routerLink]="['/editar-usuario']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarUsuario()" class="btn btn-sm btn-danger"
+                                            <button [routerLink]="['/editar-usuario/'+usuario.id]"
+                                                class="btn btn-sm btn-info" type="button"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></button>
+                                            <button (click)="eliminarUsuario(usuario.id)" class="btn btn-sm btn-danger"
                                                 type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
                                         </td>
                                     </tr>
 
-                                    <tr>
+                                    <!--  <tr>
                                         <td>
                                             1079607161
                                         </td>
@@ -120,7 +133,7 @@
                                                 type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>

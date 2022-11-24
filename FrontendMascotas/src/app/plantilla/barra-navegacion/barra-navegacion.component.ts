@@ -74,7 +74,7 @@ export class BarraNavegacionComponent implements OnInit {
       text: "¿Desea cerrar la sesión?",
       icon: "question",
       showCancelButton: true,
-      confirmButtonColor: "#2a82eb",
+      confirmButtonColor: "#5E72E4",
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, cerrar",
       cancelButtonText: "Cancelar",
