@@ -26,7 +26,7 @@ import {AutenticacionService, NotificacionService} from '../services';
 
 require('dotenv').config();
 
-@authenticate('administrador') // ?: Autorizar adminstrador
+/* @authenticate('administrador') // ?: Autorizar adminstrador */
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
@@ -113,6 +113,7 @@ export class UsuarioController {
     return this.usuarioRepository.count(where);
   }
 
+  @authenticate.skip() // !: No requiere autenticación
   @get('/usuarios')
   @response(200, {
     description: 'Array of Usuario model instances',
@@ -185,6 +186,7 @@ export class UsuarioController {
     await this.usuarioRepository.updateById(id, usuario);
   }
 
+  @authenticate.skip() // ?: No requiere autenticación
   @put('/usuarios/{id}')
   @response(204, {
     description: 'Usuario PUT success',
@@ -195,7 +197,7 @@ export class UsuarioController {
   ): Promise<void> {
     await this.usuarioRepository.replaceById(id, usuario);
   }
-
+  @authenticate.skip() // ?: No requiere autenticación
   @del('/usuarios/{id}')
   @response(204, {
     description: 'Usuario DELETE success',
