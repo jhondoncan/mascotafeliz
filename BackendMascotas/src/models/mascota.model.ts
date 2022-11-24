@@ -1,6 +1,6 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
-import {Usuario} from './usuario.model';
+import {belongsTo, Entity, model, property} from '@loopback/repository';
 import {Plan} from './plan.model';
+import {Usuario} from './usuario.model';
 
 @model()
 export class Mascota extends Entity {
@@ -24,10 +24,10 @@ export class Mascota extends Entity {
   foto: string;
 
   @property({
-    type: 'number',
+    type: 'string',
     required: true,
   })
-  estado: number;
+  estado: string;
 
   @property({
     type: 'string',
@@ -37,7 +37,7 @@ export class Mascota extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
   comentario: string;
 

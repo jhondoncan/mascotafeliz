@@ -21,7 +21,7 @@ import {
 import {Mascota} from '../models';
 import {MascotaRepository} from '../repositories';
 
-@authenticate('administrador', 'usuario') // ?: Autorizar adminstrador
+/* @authenticate('administrador', 'usuario') // ?: Autorizar adminstrador */
 export class MascotaController {
   constructor(
     @repository(MascotaRepository)

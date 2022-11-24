@@ -1,4 +1,3 @@
-import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -21,7 +20,7 @@ import {
 import {Prospecto} from '../models';
 import {ProspectoRepository} from '../repositories';
 
-@authenticate('administrador') // ?: Autorizar adminstrador
+/* @authenticate('administrador') // ?: Autorizar adminstrador */
 export class ProspectoController {
   constructor(
     @repository(ProspectoRepository)

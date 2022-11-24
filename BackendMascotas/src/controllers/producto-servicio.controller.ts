@@ -5,7 +5,7 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
   del,
@@ -16,12 +16,12 @@ import {
   post,
   put,
   requestBody,
-  response,
+  response
 } from '@loopback/rest';
 import {ProductoServicio} from '../models';
 import {ProductoServicioRepository} from '../repositories';
 
-@authenticate('administrador', 'asesor') // ?: Autorizar adminstrador , asesor
+/* @authenticate('administrador', 'asesor') // ?: Autorizar adminstrador , asesor */
 export class ProductoServicioController {
   constructor(
     @repository(ProductoServicioRepository)

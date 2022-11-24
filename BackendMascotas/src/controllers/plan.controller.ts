@@ -1,4 +1,3 @@
-import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -21,7 +20,7 @@ import {
 import {Plan} from '../models';
 import {PlanRepository} from '../repositories';
 
-@authenticate('administrador') // ?: Autorizar adminstrador
+/* @authenticate('administrador') // ?: Autorizar adminstrador */
 export class PlanController {
   constructor(
     @repository(PlanRepository)
