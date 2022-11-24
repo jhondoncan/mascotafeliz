@@ -24,6 +24,7 @@ import { InicioComponent } from "./plantilla/inicio/inicio.component";
 import { ErrorComponent } from "./plantilla/error/error.component";
 import { LogoutComponent } from "./modulos/seguridad/logout/logout.component";
 import { EliminarUsuarioComponent } from "./modulos/administracion/usuarios/eliminar-usuario/eliminar-usuario.component";
+import { ValidadorSesionGuard } from "./guardianes/validador-sesion.guard";
 
 const routes: Routes = [
   { path: "inicio", component: InicioComponent },
@@ -33,20 +34,76 @@ const routes: Routes = [
   { path: "registro", component: RegistroComponent },
   { path: "recuperar-clave", component: RecuperarClaveComponent },
   { path: "contacto", component: CrearProspectoComponent },
-  { path: "prospectos", component: ListarProspectosComponent },
-  { path: "crear-mascota", component: CrearMascotaComponent },
-  { path: "editar-mascota", component: EditarMascotaComponent },
-  { path: "mascotas", component: ListarMascotasComponent },
-  { path: "crear-usuario", component: CrearUsuarioComponent },
-  { path: "editar-usuario/:id", component: EditarUsuarioComponent },
-  { path: "eliminar-usuario/:id", component: EliminarUsuarioComponent },
-  { path: "crear-plan", component: CrearPlanComponent },
-  { path: "editar-plan", component: EditarPlanComponent },
-  { path: "planes", component: ListarPlanesComponent },
-  { path: "crear-sucursal", component: CrearSucursalComponent },
-  { path: "editar-sucursal", component: EditarSucursalComponent },
-  { path: "sucursales", component: ListarSucursalesComponent },
-  { path: "usuarios", component: ListarUsuariosComponent },
+  {
+    path: "prospectos",
+    component: ListarProspectosComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "crear-mascota",
+    component: CrearMascotaComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "editar-mascota",
+    component: EditarMascotaComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "mascotas",
+    component: ListarMascotasComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "crear-usuario",
+    component: CrearUsuarioComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "editar-usuario/:id",
+    component: EditarUsuarioComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "eliminar-usuario/:id",
+    component: EliminarUsuarioComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "crear-plan",
+    component: CrearPlanComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "editar-plan",
+    component: EditarPlanComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "planes",
+    component: ListarPlanesComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "crear-sucursal",
+    component: CrearSucursalComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "editar-sucursal",
+    component: EditarSucursalComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "sucursales",
+    component: ListarSucursalesComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "usuarios",
+    component: ListarUsuariosComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
   { path: "**", component: ErrorComponent },
 ];
 
