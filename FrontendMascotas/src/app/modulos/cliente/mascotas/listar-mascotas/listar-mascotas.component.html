@@ -30,89 +30,48 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let mascota of listadoMascotas">
                                         <td>
-                                            Connie
+                                            {{mascota.nombre}}
                                         </td>
                                         <th class="text-center">
-                                            <img
-                                                src="https://www.doggypark.com.co/wp-content/uploads/2021/02/Cachorro-Salchicha.jpg">
+                                            <img src={{mascota.foto}}>
                                         </th>
                                         <td>
-                                            Canino
+                                            {{mascota.especie}}
                                         </td>
-                                        <td class="text-center">
-                                            <span class="badge badge-pill badge-success text-uppercase">Activo</span>
-
+                                        <td class="text-center" *ngIf="mascota.estado == 'activo'">
+                                            <span
+                                                class="badge badge-pill badge-success text-uppercase">{{mascota.estado}}</span>
+                                        </td>
+                                        <td class="text-center" *ngIf="mascota.estado == 'pendiente'">
+                                            <span
+                                                class="badge badge-pill badge-primary text-uppercase">{{mascota.estado}}</span>
+                                        </td>
+                                        <td class="text-center" *ngIf="mascota.estado == 'rechazado'">
+                                            <span
+                                                class="badge badge-pill badge-warning text-uppercase">{{mascota.estado}}</span>
+                                        </td>
+                                        <td class="text-center"
+                                            *ngIf="mascota.estado !== 'activo' && mascota.estado !== 'pendiente' && mascota.estado !== 'rechazado'">
+                                            <span class="badge badge-pill badge-danger text-uppercase">SIN PLAN</span>
                                         </td>
                                         <td>
-                                            Perra de raza pincher...
+                                            {{mascota.comentario}}
                                         </td>
 
                                         <td class="text-center">
 
-                                            <button [routerLink]="['/editar-mascota']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarMascota()" class="btn btn-sm btn-danger"
+                                            <button [routerLink]="['/editar-mascota/'+mascota.id]"
+                                                class="btn btn-sm btn-info" type="button"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i></button>
+                                            <button (click)="eliminarMascota(mascota.id)" class="btn btn-sm btn-danger"
                                                 type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td>
-                                            Auron
-                                        </td>
-                                        <td>
-                                            auron.jpg
-                                        </td>
-                                        <td>
-                                            Felino
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="badge badge-pill badge-warning text-uppercase">Pendiente</span>
 
-                                        </td>
-                                        <td>
-                                            Gato persa de 3 años...
-                                        </td>
-
-                                        <td class="text-center">
-
-                                            <button [routerLink]="['/editar-mascota']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarMascota()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Dakota
-                                        </td>
-                                        <td>
-                                            dakota.jpg
-                                        </td>
-                                        <td>
-                                            Canino
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="badge badge-pill badge-danger text-uppercase">Suspendido</span>
-
-                                        </td>
-                                        <td>
-                                            Perra de raza pitbull...
-                                        </td>
-
-                                        <td class="text-center">
-
-                                            <button [routerLink]="['/editar-mascota']" class="btn btn-sm btn-info"
-                                                type="button"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                                            <button (click)="eliminarMascota()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
