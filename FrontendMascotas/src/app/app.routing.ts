@@ -25,6 +25,7 @@ import { ErrorComponent } from "./plantilla/error/error.component";
 import { LogoutComponent } from "./modulos/seguridad/logout/logout.component";
 import { EliminarUsuarioComponent } from "./modulos/administracion/usuarios/eliminar-usuario/eliminar-usuario.component";
 import { ValidadorSesionGuard } from "./guardianes/validador-sesion.guard";
+import { EliminarProspectoComponent } from "./modulos/administracion/prospectos/eliminar-prospecto/eliminar-prospecto.component";
 
 const routes: Routes = [
   { path: "inicio", component: InicioComponent },
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: "prospectos",
     component: ListarProspectosComponent,
+    canActivate: [ValidadorSesionGuard],
+  },
+  {
+    path: "eliminar-prospecto/:id",
+    component: EliminarProspectoComponent,
     canActivate: [ValidadorSesionGuard],
   },
   {

@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { ModeloProspecto } from "src/app/modelo/prospecto.modelo";
+import { ProspectoService } from "src/app/servicios/prospecto.service";
 import Swal from "sweetalert2";
 
 @Component({
@@ -7,7 +10,29 @@ import Swal from "sweetalert2";
   styleUrls: ["./listar-prospectos.component.css"],
 })
 export class ListarProspectosComponent implements OnInit {
-  eliminarProspecto() {
+  listadoProspectos: ModeloProspecto[] = [];
+
+  constructor(
+    private prospectoServicio: ProspectoService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
+    this.prospectoServicio.obtenerProspectos().subscribe((prospectos) => {
+      this.listadoProspectos = prospectos;
+    });
+  }
+
+  obtenerListadoProspectos() {
+    this.prospectoServicio
+      .obtenerProspectos()
+      .subscribe((datos: ModeloProspecto[]) => {
+        this.listadoProspectos = datos;
+      });
+  }
+
+  /* MENSAJES DE ALERTAS SWEETALERT2 */
+  eliminarProspecto(id: String) {
     Swal.fire({
       title: "",
       text: "¿Deseas eliminar este prospecto?",
@@ -19,16 +44,8 @@ export class ListarProspectosComponent implements OnInit {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "",
-          text: "El prospecto ha sido eliminado.",
-          icon: "success",
-          confirmButtonColor: "#5E72E4",
-        });
+        this.router.navigate(["/eliminar-prospecto/", id]);
       }
     });
   }
-  constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -32,82 +32,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let prospecto of listadoProspectos">
                                         <td>
-                                            Juan Andres
+                                            {{prospecto.nombres}}
                                         </td>
                                         <td>
-                                            Alvarez
+                                            {{prospecto.apellidos}}
                                         </td>
                                         <td>
-                                            juanalva@gmail.com
+                                            {{prospecto.correo}}
                                         </td>
                                         <td>
-                                            3132345902
+                                            {{prospecto.celular}}
                                         </td>
                                         <td>
-                                            Hola, deseo mas información...
+                                            {{prospecto.comentario}}
                                         </td>
 
                                         <td class="text-center">
-
-
-                                            <button (click)="eliminarProspecto()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
+                                            <button (click)="eliminarProspecto(prospecto.id)"
+                                                class="btn btn-sm btn-danger" type="button"><i class="fa fa-trash"
+                                                    aria-hidden="true"></i></button>
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td>
-                                            Ivan
-                                        </td>
-                                        <td>
-                                            Garcia Romero
-                                        </td>
-                                        <td>
-                                            ivangarcia@gmail.com
-                                        </td>
-                                        <td>
-                                            3116547865
-                                        </td>
-                                        <td>
-                                            Hola, quiero afiliar mi mascota...
-                                        </td>
-
-                                        <td class="text-center">
-
-
-                                            <button (click)="eliminarProspecto()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            Rocio
-                                        </td>
-                                        <td>
-                                            Peralta Ardila
-                                        </td>
-                                        <td>
-                                            rocioperalta@gmail.com
-                                        </td>
-                                        <td>
-                                            3131234567
-                                        </td>
-                                        <td>
-                                            Hola, deseo trabajar para ustedes...
-                                        </td>
-
-                                        <td class="text-center">
-
-
-                                            <button (click)="eliminarProspecto()" class="btn btn-sm btn-danger"
-                                                type="button"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
