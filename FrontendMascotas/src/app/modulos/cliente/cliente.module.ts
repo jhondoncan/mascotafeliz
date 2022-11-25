@@ -7,6 +7,7 @@ import { CrearMascotaComponent } from "./mascotas/crear-mascota/crear-mascota.co
 import { EditarMascotaComponent } from "./mascotas/editar-mascota/editar-mascota.component";
 import { ListarMascotasComponent } from "./mascotas/listar-mascotas/listar-mascotas.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { EliminarMascotaComponent } from './mascotas/eliminar-mascota/eliminar-mascota.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     CrearMascotaComponent,
     EditarMascotaComponent,
     ListarMascotasComponent,
+    EliminarMascotaComponent,
   ],
   imports: [
     CommonModule,
