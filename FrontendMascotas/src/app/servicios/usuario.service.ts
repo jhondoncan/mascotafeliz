@@ -39,7 +39,7 @@ export class UsuarioService {
   }
 
   actualizarUsuario(usuario: ModeloUsuario): Observable<ModeloUsuario> {
-    return this.http.put<ModeloUsuario>(
+    return this.http.patch<ModeloUsuario>(
       `${this.baseUrl}/usuarios/${usuario.id}`,
       usuario
     );
